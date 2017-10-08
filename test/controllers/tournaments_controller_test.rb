@@ -1,20 +1,38 @@
 require 'test_helper'
 
 class TournamentsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @tournament = tournaments(:one)
+  end
 
-  test 'attempt to load all tournaments' do
-    get '/tournaments'
+  test "should get index" do
+    get tournaments_url, as: :json
     assert_response :success
   end
 
-  test 'attempt to create a valid tournament' do
-    post '/tournaments', params: { tournament: { name: 'test tourney', description: 'simple desc' } }
-    assert_response :created
+  test "should create tournament" do
+    assert_difference('Tournament.count') do
+      post tournaments_url, params: { tournament: { name: @tournament.name, description: @tournament.description } }, as: :json
+    end
+
+    assert_response 201
   end
 
-  test 'attempt to create an invalid tournament' do
-    post '/tournaments', params: { tournament: { food: 'bar' } }
-    assert_response :unprocessable_entity
+  test "should show tournament" do
+    get tournament_url(@tournament), as: :json
+    assert_response :success
   end
 
+  test "should update tournament" do
+    patch tournament_url(@tournament), params: { tournament: { name: @tournament.name, description: @tournament.description } }, as: :json
+    assert_response 200
+  end
+
+  test "should destroy tournament" do
+    assert_difference('Tournament.count', -1) do
+      delete tournament_url(@tournament), as: :json
+    end
+
+    assert_response 204
+  end
 end

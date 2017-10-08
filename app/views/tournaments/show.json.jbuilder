@@ -1,1 +1,1 @@
-json.data @tournament
+json.partial! 'tournaments/tournament', tournament: @tournament

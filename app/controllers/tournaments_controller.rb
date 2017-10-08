@@ -1,35 +1,42 @@
 class TournamentsController < ApplicationController
+  before_action :set_tournament, only: [:show, :update, :destroy]
 
   def index
     @tournaments = Tournament.all
   end
 
+  def show
+  end
+
   def create
     @tournament = Tournament.new(tournament_params)
+
     if @tournament.save
-      render status: :created
+      render :show, status: :created, location: @tournament
     else
-      render status: :unprocessable_entity
+      render json: @tournament.errors, status: :unprocessable_entity
     end
   end
 
-  def show
-    @tournament = Tournament.find(params[:id])
-  end
-
   def update
-    @tournament = Tournament.update(params[:id], tournament_params)
+    if @tournament.update(tournament_params)
+      render :show, status: :ok, location: @tournament
+    else
+      render json: @tournament.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @tournament = Tournament.find(params[:id])
     @tournament.destroy
   end
 
   private
 
-  def tournament_params
-    params.require(:tournament).permit(:name, :description)
-  end
+    def set_tournament
+      @tournament = Tournament.find(params[:id])
+    end
 
+    def tournament_params
+      params.require(:tournament).permit(:name, :description)
+    end
 end
