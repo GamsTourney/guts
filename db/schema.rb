@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20171008212813) do
     t.string "name"
     t.string "img_url"
     t.string "scoring"
-    t.integer "max_players"
     t.integer "tournament_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
