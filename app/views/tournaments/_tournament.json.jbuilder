@@ -4,3 +4,8 @@ json.url tournament_url(tournament, format: :json)
 if @include[:players]
   json.players tournament.players, partial: 'players/player', as: :player
 end
+
+if @include[:games]
+  json.games tournament.games, partial: 'games/game', as: :game
+end
+
