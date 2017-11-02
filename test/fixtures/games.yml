@@ -5,11 +5,9 @@ one:
   img_url: image_url1
   scoring: 4,2,1,0
   max_players: 4
-  tournament_id: one
 
 two:
   name: game2
   img_url: image_url2
   scoring: 10,5,0,0,0
   max_players: 10
-  tournament_id: two
