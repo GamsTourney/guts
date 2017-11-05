@@ -1,9 +1,8 @@
 class GamesController < ApplicationController
-  before_action :set_tournament, except: [:destroy]
   before_action :set_game, only: [:show, :update, :destroy]
 
   def index
-    @games = @tournament.games
+    @games = Game.all
   end
 
   def show
@@ -13,7 +12,7 @@ class GamesController < ApplicationController
     @game = Game.new(game_params)
 
     if @game.save
-      render :show, status: :created, location: tournament_game_url(@tournament, @game)
+      render :show, status: :created, location: game_url(@game)
     else
       render json: @game.errors, status: :unprocessable_entity
     end
@@ -21,7 +20,7 @@ class GamesController < ApplicationController
 
   def update
     if @game.update(game_params)
-      render :show, status: :ok, location: tournament_game_url(@tournament, @game)
+      render :show, status: :ok, location: game_url(@game)
     else
       render json: @game.errors, status: :unprocessable_entity
     end
@@ -33,18 +32,12 @@ class GamesController < ApplicationController
 
   private
 
-    def set_tournament
-      @tournament = Tournament.find(params[:tournament_id])
-    end
-
     def set_game
       @game = Game.find(params[:id])
     end
 
     def game_params
-      gp = params.require(:game).permit(:name, :img_url, :scoring)
-      gp[:tournament_id] = @tournament.id
-      gp
+      return params.require(:game).permit(:name, :img_url, :scoring)
     end
 
 end
