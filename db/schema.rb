@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171008212813) do
+ActiveRecord::Schema.define(version: 20171105165012) do
+
+  create_table "competitors", force: :cascade do |t|
+    t.integer "player_id"
+    t.integer "tournament_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "img_url"
     t.string "scoring"
-    t.integer "tournament_id"
+    t.integer "max_players"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "participations", force: :cascade do |t|
-    t.integer "player_id"
-    t.integer "tournament_id"
   end
 
   create_table "players", force: :cascade do |t|
