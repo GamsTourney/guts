@@ -7,8 +7,8 @@ class MatchTest < ActiveSupport::TestCase
   end
 
   test 'should validate required params exists' do
-    game = Game.new
-    assert_not game.save
+    match = Match.new
+    assert_not match.save
   end
 
   test 'should be able to reference a set of players' do
