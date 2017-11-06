@@ -15,6 +15,8 @@ ActiveRecord::Schema.define(version: 20171105172207) do
   create_table "competitors", force: :cascade do |t|
     t.integer "player_id"
     t.integer "tournament_id"
+    t.datetime "created_at", default: "2017-11-05 19:44:16", null: false
+    t.datetime "updated_at", default: "2017-11-05 19:44:16", null: false
   end
 
   create_table "games", force: :cascade do |t|
