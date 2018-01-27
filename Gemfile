@@ -10,8 +10,8 @@ gem 'puma', '~> 3.7'
 gem 'jbuilder', '~> 2.5'
 gem 'steam_web_api'
 
-gem 'sqlite3', group: :development # Added development group.
-gem 'pg', group: :production # Added postgres and made it production only.
+gem 'sqlite3', group: :development
+gem 'pg', group: :production
 gem 'rails_12factor'
 gem 'rack-cors'
 
