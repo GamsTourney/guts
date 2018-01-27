@@ -8,7 +8,6 @@ end
 gem 'rails', '~> 5.1.3'
 gem 'puma', '~> 3.7'
 gem 'jbuilder', '~> 2.5'
-gem 'pg'
 gem 'steam_web_api'
 
 gem 'sqlite3', group: :development # Added development group.
