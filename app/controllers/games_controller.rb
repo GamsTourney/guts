@@ -37,7 +37,7 @@ class GamesController < ApplicationController
     end
 
     def game_params
-      return params.require(:game).permit(:name, :img_url, :scoring)
+      return params.require(:game).permit(:name, :img_url, :players)
     end
 
 end

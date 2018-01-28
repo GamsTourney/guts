@@ -21,8 +21,8 @@ t2.players = [p1, p2, p3, p4, p5, p6, p7, p8]
 
 # Games
 
-g1 = Game.create(name: 'shimmy', scoring: '4,3,2,1')
-g2 = Game.create(name: 'shake', scoring: '4,3,2,1')
+g1 = Game.create(name: 'shimmy', players: 4)
+g2 = Game.create(name: 'shake', players: 4)
 
 # Matches
 

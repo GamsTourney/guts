@@ -10,21 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171105193838) do
+ActiveRecord::Schema.define(version: 20180128154751) do
 
   create_table "competitors", force: :cascade do |t|
     t.integer "player_id"
     t.integer "tournament_id"
-    t.datetime "created_at", default: "2017-11-05 19:41:48", null: false
-    t.datetime "updated_at", default: "2017-11-05 19:41:49", null: false
+    t.datetime "created_at", default: "2017-11-05 19:44:16", null: false
+    t.datetime "updated_at", default: "2017-11-05 19:44:16", null: false
   end
 
   create_table "games", force: :cascade do |t|
     t.string "name"
     t.string "img_url"
-    t.string "scoring"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "players"
   end
 
   create_table "match_competitors", force: :cascade do |t|
@@ -46,6 +46,15 @@ ActiveRecord::Schema.define(version: 20171105193838) do
     t.string "steam_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "position"
+    t.integer "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id", "position"], name: "index_scores_on_game_id_and_position", unique: true
   end
 
   create_table "tournaments", force: :cascade do |t|
