@@ -21,3 +21,6 @@
 !/tmp/.keep
 
 .byebug_history
+
+# Ignore tournament specific files
+db/seeds/2018*

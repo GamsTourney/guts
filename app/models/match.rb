@@ -4,6 +4,6 @@ class Match < ApplicationRecord
   belongs_to :game
 
   def players
-    return competitors.collect(&:player)
+    competitors.collect(&:player)
   end
 end
