@@ -1,4 +1,8 @@
-# GamsTourney Backend (Name TBD)
+# Guts
+
+Required ENV:
+
+STEAM_API_KEY
 
 Current ERD:
 
