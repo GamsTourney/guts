@@ -12,8 +12,8 @@ class PlayerTest < ActiveSupport::TestCase
     assert_not player.save
   end
 
-  test 'should be able to retrieve matches for a tournament' do
-    matches = @player.matches(@tournament)
+  test 'should be able to retrieve matches' do
+    matches = @player.matches
     assert matches.size == 1
   end
 

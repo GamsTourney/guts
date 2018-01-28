@@ -3,9 +3,14 @@
 one:
   name: game1
   img_url: image_url1
-  scoring: 4,2,1,0
+  players: 4
 
 two:
   name: game2
   img_url: image_url2
-  scoring: 10,5,0,0,0
+  players: 10
+
+single:
+  name: single_player
+  img_url: single_image
+  players: 1

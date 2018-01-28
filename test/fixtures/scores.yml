@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game: one
+  position: 1
+  value: 10
+
+two:
+  game: two
+  position: 2
+  value: 5
+
+single:
+  game: single
+  position: 1
+  value: 10
