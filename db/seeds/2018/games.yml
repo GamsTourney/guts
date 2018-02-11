@@ -1,0 +1,17 @@
+---
+- name: Unreal Tournament
+  players: 4
+- name: Grid 2
+  players: 4
+- name: Super Smash Brothers
+  players: 4
+- name: Mount Your Friends
+  players: 4
+- name: Mortal Kombat II
+  players: 2
+- name: Blitz 2000
+  players: 2
+- name: Guitar Hero 3
+  players: 8
+- name: Ms. Pac-Man
+  players: 8

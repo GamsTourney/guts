@@ -5,5 +5,13 @@ unless @include.empty?
       included[collection] = obj.send(collection)
     end
   end
-  json.included included
+  json.included do
+    included.each do |model, instances|
+      json.set! model, instances do |instance|
+        json.merge! instance.attributes
+        json.set! :url, polymorphic_url(instance)
+      end
+    end
+  end
 end
+
