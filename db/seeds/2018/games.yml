@@ -1,17 +1,25 @@
 ---
 - name: Unreal Tournament
   players: 4
+  img_url: 'http://uploads.freegogpcgames.com/image/Unreal-Tournament-2004-Editors-Choice-Edition.jpg'
 - name: Grid 2
   players: 4
+  img_url: 'http://cdn.akamai.steamstatic.com/steam/apps/44350/header.jpg'
 - name: Super Smash Brothers
   players: 4
+  img_url: 'http://i0.wp.com/bitesizegamer.com/wp-content/uploads/2018/01/super-smash-bros-melee-hd.png'
 - name: Mount Your Friends
   players: 4
+  img_url: 'http://stegersaurus.com/MountFriendsMedia/screenBackdrop.png'
 - name: Mortal Kombat II
   players: 2
+  img_url: 'https://www.gamehackstudios.com/wp-content/uploads/2015/08/Mortalkombat2.jpg'
 - name: Blitz 2000
   players: 2
+  img_url: 'https://www.gamingrebellion.com/wp-content/uploads/2016/07/NFLBlitz2000-750x400.jpg'
 - name: Guitar Hero 3
   players: 8
+  img_url: 'https://i.ytimg.com/vi/5wZysA029eY/maxresdefault.jpg'
 - name: Ms. Pac-Man
   players: 8
+  img_url: 'http://cdn.player.one/sites/player.one/files/styles/lg/public/2017/03/31/ms-pac-man-google.jpg'
