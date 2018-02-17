@@ -9,7 +9,11 @@ unless @include.empty?
     included.each do |model, instances|
       json.set! model, instances do |instance|
         json.merge! instance.attributes
-        json.set! :url, polymorphic_url(instance)
+        begin
+          json.set! :url, polymorphic_url(instance)
+        rescue
+          # Unable to generate a URL for resource - safe
+        end
       end
     end
   end

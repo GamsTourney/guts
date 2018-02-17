@@ -6,4 +6,8 @@ class Match < ApplicationRecord
   def players
     competitors.collect(&:player)
   end
+
+  def scores
+    game.scores
+  end
 end
