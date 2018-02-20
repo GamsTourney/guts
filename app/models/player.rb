@@ -6,7 +6,6 @@ class Player < ApplicationRecord
   validates :name, presence: true
 
   def steam_data
-    player = SteamWebApi::Player.new(self.steam_id)
-    player.summary.profile
+    SteamCache.get_player_summary(self.steam_id)
   end
 end
