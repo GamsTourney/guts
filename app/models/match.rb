@@ -4,7 +4,7 @@ class Match < ApplicationRecord
   belongs_to :game
 
   def players
-    competitors.collect(&:player)
+    competitors.collect(&:player_id)
   end
 
   def scores

@@ -2,17 +2,18 @@ require 'test_helper'
 
 class MatchesControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @tournament = tournaments(:one)
     @match = matches(:one)
   end
 
   test "should get index" do
-    get matches_url, as: :json
+    get tournament_matches_url(@tournament), as: :json
     assert_response :success
   end
 
   test "should create match" do
     assert_difference('Match.count') do
-      post matches_url, params: { match: { game_id: @match.game_id, start_time: @match.start_time } }, as: :json
+      post tournament_matches_url(@tournament), params: { match: { game_id: @match.game_id, start_time: @match.start_time } }, as: :json
     end
 
     assert_response 201
