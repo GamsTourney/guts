@@ -36,7 +36,6 @@ class TournamentsController < ApplicationController
   private
 
     def set_tournament
-      puts(params)
       @tournament = Tournament.find(params[:id])
     end
 
