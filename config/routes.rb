@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :match_results
   resources :tournaments, defaults: {format: :json} do
     member do
       get :standings
