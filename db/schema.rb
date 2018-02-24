@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128154751) do
+ActiveRecord::Schema.define(version: 20180223011033) do
 
   create_table "competitors", force: :cascade do |t|
     t.integer "player_id"
@@ -30,6 +30,13 @@ ActiveRecord::Schema.define(version: 20180128154751) do
   create_table "match_competitors", force: :cascade do |t|
     t.integer "match_id"
     t.integer "competitor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "match_results", force: :cascade do |t|
+    t.integer "match_competitor_id"
+    t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
