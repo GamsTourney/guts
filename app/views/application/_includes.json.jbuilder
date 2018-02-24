@@ -8,7 +8,7 @@ unless @include.empty?
   json.included do
     included.each do |model, instances|
       json.set! model, instances do |instance|
-        json.merge! instance.attributes
+        json.merge! instance.respond_to?(:attributes) ? instance.attributes : instance
         begin
           json.set! :url, polymorphic_url(instance)
         rescue
