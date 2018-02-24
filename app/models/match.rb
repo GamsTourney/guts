@@ -10,11 +10,11 @@ class Match < ApplicationRecord
 
   def results
     result_list = []
-    match_results.each do |match_result|
+    match_competitors.each do |match_competitor|
       result = {
-        player_id: match_result.player.id,
-        position: match_result.position,
-        points: match_result.points
+        player_id: match_competitor.player.id,
+        position: match_competitor.position,
+        points: match_competitor.points
       }
       result_list << result
     end
@@ -25,10 +25,13 @@ class Match < ApplicationRecord
     game.scores
   end
 
-  # Create Match Results with an order list of Match Competitors
-  def submit_results(match_competitors)
-    match_competitors.each_with_index do |match_competitor, pos|
-      MatchResult.create(match_competitor: match_competitor, position: pos)
+  # Update results for the match competitors. Expects a list of ids
+  def submit_results(competitor_ids)
+    Match.transaction do
+      competitor_ids.each_with_index  do |competitor, idx|
+        match_competitor = match_competitors.find(competitor)
+        match_competitor.update(position: idx)
+      end
     end
   end
 end
