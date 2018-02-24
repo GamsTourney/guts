@@ -3,8 +3,8 @@ class ApplicationController < ActionController::API
 
   def record_includes
     @include = {}
-    @include[controller_name] = {}
     return unless params[:include]
+    @include[controller_name] = {}
     params[:include].split(',').each do |k|
       @include[controller_name][k.to_sym] = true
     end
