@@ -10,7 +10,7 @@ class Player < ApplicationRecord
   end
 
   def get_tournament_score(tournament)
-    earned_points = tournament_competitor(tournament).match_results.collect(&:points)
+    earned_points = tournament_competitor(tournament).match_competitors.collect(&:points)
     earned_points.inject(&:+) || 0
   end
 
