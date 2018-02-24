@@ -1,11 +1,14 @@
 class TournamentsController < ApplicationController
-  before_action :set_tournament, only: [:show, :update, :destroy]
+  before_action :set_tournament, only: [:show, :update, :destroy, :standings]
 
   def index
     @tournaments = Tournament.all
   end
 
   def show
+  end
+
+  def standings
   end
 
   def create
