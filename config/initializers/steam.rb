@@ -14,7 +14,9 @@ class SteamCache
 
     player = SteamWebApi::Player.new(id)
     @@cache[id] = player.summary.profile
-    @@cache[id][:cache_time] = Time.current
+    if @@cache[id]
+      @@cache[id][:cache_time] = Time.current
+    end
     @@cache[id]
   end
 
