@@ -1,6 +1,6 @@
 # Tournament
 tournament = Tournament.create(name: 'Gams 2018')
-tournament_start = DateTime.new(2018, 3, 10, 10, 0, 0, '+5:00')
+tournament_start = DateTime.new(2018, 3, 10, 10, 0, 0, '-5:00')
 
 # Players
 players = YAML::load_file("db/seeds/2018/players.yml")
@@ -57,7 +57,7 @@ smash = Game.find_by(name: 'Super Smash Brothers')
 add_scores(unreal, [4, 2, 1, 0])
 add_scores(smash, [4, 2, 1, 0])
 morning_games = [unreal, smash]
-morning_start = DateTime.new(2018, 3, 10, 10, 0, 0, '+5:00')
+morning_start = DateTime.new(2018, 3, 10, 10, 0, 0, '-5:00')
 morning_schedule = [
   [[6,3,5,7], [2,8,1,4]],
   [[6,4,5,1], [2,3,7,8]],
@@ -78,7 +78,7 @@ blitz = Game.find_by(name: 'Blitz 2000')
 add_scores(mk2, [3, 0])
 add_scores(blitz, [3, 0])
 afternoon_games = [mk2, blitz]
-afternoon_start = DateTime.new(2018, 3, 10, 12, 30, 0, '+5:00')
+afternoon_start = DateTime.new(2018, 3, 10, 12, 30, 0, '-5:00')
 afternoon_schedule = [
   [[6,4], [3,5]],
   [[1,2], [8,7]],
@@ -105,7 +105,7 @@ mount = Game.find_by(name: 'Mount Your Friends')
 add_scores(grid, [4, 2, 1, 0])
 add_scores(mount, [4, 2, 1, 0])
 late_games = [grid, mount]
-late_start = DateTime.new(2018, 3, 10, 15, 00, 0, '+5:00')
+late_start = DateTime.new(2018, 3, 10, 15, 00, 0, '-5:00')
 late_schedule =[
   [[4,8,2,6], [7,1,5,3]],
   [[1,5,7,8], [2,3,4,6]],
