@@ -26,7 +26,7 @@ def gather_competitors(tournament, ids)
   ids.map { |id| competitors[id - 1] }
 end
 
-def create_matches(tournament, schedule, start, game_duration, games)
+def create_matches(tournament, schedule, start, game_duration, games, hidden = false)
   schedule.each_with_index do |event, idx|
     start_time = start + (idx * game_duration)
     event.each_with_index do |players, idx|
@@ -36,7 +36,8 @@ def create_matches(tournament, schedule, start, game_duration, games)
         tournament: tournament,
         competitors: competitors,
         start_time: start_time,
-        end_time: start_time + game_duration
+        end_time: start_time + game_duration,
+        hidden: hidden
       )
     end
   end
@@ -47,8 +48,8 @@ gh3 = Game.find_by(name: 'Guitar Hero 3')
 pac = Game.find_by(name: 'Ms. Pac-Man')
 add_scores(gh3, [8, 6, 4, 3, 2, 1, 0, 0])
 add_scores(pac, [8, 6, 4, 3, 2, 1, 0, 0])
-create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [gh3])
-create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [pac])
+create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [gh3], true)
+create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [pac], true)
 
 # Morning
 unreal = Game.find_by(name: 'Unreal Tournament')
