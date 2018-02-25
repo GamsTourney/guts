@@ -33,7 +33,8 @@ class Match < ApplicationRecord
       players.each_with_index  do |player, idx|
         competitor = competitor_map[player]
         match_competitor = match_competitor_map[competitor.id]
-        match_competitor.update(position: idx)
+        match_competitor.position = idx
+        match_competitor.save
       end
     end
   end
