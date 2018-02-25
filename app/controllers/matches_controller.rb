@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   before_action :set_tournament, only: [:index, :create]
-  before_action :set_match, only: [:show, :update, :destroy]
+  before_action :set_match, only: [:show, :update, :destroy, :score]
 
   def index
     @matches = @tournament.matches
@@ -30,6 +30,16 @@ class MatchesController < ApplicationController
 
   def destroy
     @match.destroy
+  end
+
+  def score
+    @include[controller_name] = {
+      results: true,
+      players: true
+    }
+    player_ids = params[:order].split(',').collect(&:to_i)
+    @match.submit_results(player_ids)
+    render 'show'
   end
 
   private
