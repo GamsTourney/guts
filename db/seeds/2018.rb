@@ -31,7 +31,13 @@ def create_matches(tournament, schedule, start, game_duration, games)
     start_time = start + (idx * game_duration)
     event.each_with_index do |players, idx|
       competitors = gather_competitors(tournament, players)
-      Match.create(game: games[idx], competitors: competitors, start_time: start_time)
+      Match.create(
+        game: games[idx],
+        tournament: tournament,
+        competitors: competitors,
+        start_time: start_time,
+        end_time: start_time + game_duration
+      )
     end
   end
 end

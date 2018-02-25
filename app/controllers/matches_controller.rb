@@ -9,9 +9,9 @@ class MatchesController < ApplicationController
   def show
   end
 
-  # TODO: Need to include player list in body for create
   def create
     @match = Match.new(match_params)
+    @match.tournament = @tournament
 
     if @match.save
       render :show, status: :created, location: @match

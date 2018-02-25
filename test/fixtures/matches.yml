@@ -2,8 +2,10 @@
 
 one:
   game: one
+  tournament: one
   start_time: 2017-11-05
 
 two:
   game: two
+  tournament: two
   start_time: 2017-11-05
