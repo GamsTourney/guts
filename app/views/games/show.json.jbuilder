@@ -1,4 +1,4 @@
-json.extract! @game, :id, :name, :img_url, :players, :created_at, :updated_at
+json.extract! @game, :id, :name, :img_url, :players
 json.url game_url(@game, format: :json)
 unless @include.empty?
   json.partial! 'application/includes', obj: @game, allowed: [:scores]
