@@ -1,1 +1,0 @@
-json.standings @tournament.standings

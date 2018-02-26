@@ -6,7 +6,7 @@ included = {}
 end
 json.included do
   included.each do |model, instances|
-    json.set! model, instances do |instance|
+    json.set! model, instances.each do |instance|
       json.merge! instance.respond_to?(:attributes) ? instance.attributes : instance
       begin
         json.set! :url, polymorphic_url(instance)
