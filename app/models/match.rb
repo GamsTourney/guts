@@ -25,6 +25,10 @@ class Match < ApplicationRecord
     result_list
   end
 
+  def completed?
+    match_competitors.any? { |mc| mc.position }
+  end
+
   def scores
     game.scores
   end
