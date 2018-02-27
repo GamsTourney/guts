@@ -18,6 +18,6 @@ class Player < ApplicationRecord
   end
 
   def matches
-    competitors.collect(&:matches)
+    competitors.collect(&:matches).flatten
   end
 end
