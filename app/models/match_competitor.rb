@@ -6,6 +6,10 @@ class MatchCompetitor < ApplicationRecord
     competitor.player
   end
 
+  def game
+    match.game
+  end
+
   def points
     points = 0
     if position

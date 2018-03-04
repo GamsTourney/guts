@@ -8,9 +8,21 @@ class Player < ApplicationRecord
     competitors.where(tournament: tournament).first
   end
 
-  def get_tournament_score(tournament)
+  def score(tournament)
     earned_points = tournament_competitor(tournament).match_competitors.collect(&:points)
     earned_points.inject(&:+) || 0
+  end
+
+  def longest_streak(tournament)
+    rankings = tournament_competitor(tournament).match_competitors.collect(&:position)
+    rankings.chunk { |x| x == 0 || nil }.map { |_, x| x.size }.max
+  end
+
+  def most_game_wins(tournament)
+    match_competitors = tournament_competitor(tournament).match_competitors
+    game_wins = match_competitors.select { |mc| mc.position == 0 || nil }.collect(&:match).group_by(&:game_id)
+    game_win_stats = game_wins.max_by { |matches| matches.size }
+    { game_id: game_win_stats[0], count: game_win_stats[1].size }
   end
 
   def steam_data
