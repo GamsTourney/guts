@@ -8,5 +8,9 @@ Rails.application.routes.draw do
     end
   end
   resources :players, defaults: {format: :json}
-  resources :games, defaults: {format: :json}
+  resources :games, defaults: {format: :json} do
+    member do
+      get :matches
+    end
+  end
 end

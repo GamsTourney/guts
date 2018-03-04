@@ -8,6 +8,11 @@ class GamesController < ApplicationController
   def show
   end
 
+  def matches
+    @matches = Match.where(game_id: params[:id]).all
+    render 'matches/index'
+  end
+
   def create
     @game = Game.new(game_params)
 
@@ -37,7 +42,7 @@ class GamesController < ApplicationController
     end
 
     def game_params
-      return params.require(:game).permit(:name, :img_url, :players)
+      params.require(:game).permit(:name, :img_url, :players)
     end
 
 end
