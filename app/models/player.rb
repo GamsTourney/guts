@@ -15,14 +15,18 @@ class Player < ApplicationRecord
 
   def longest_streak(tournament)
     rankings = tournament_competitor(tournament).match_competitors.collect(&:position)
-    rankings.chunk { |x| x == 0 || nil }.map { |_, x| x.size }.max
+    rankings.chunk { |x| x == 0 || nil }.map { |_, x| x.size }.max || 0
   end
 
   def most_game_wins(tournament)
     match_competitors = tournament_competitor(tournament).match_competitors
     game_wins = match_competitors.select { |mc| mc.position == 0 || nil }.collect(&:match).group_by(&:game_id)
     game_win_stats = game_wins.max_by { |matches| matches.size }
-    { game_id: game_win_stats[0], count: game_win_stats[1].size }
+    if game_win_stats
+      { game_id: game_win_stats[0], count: game_win_stats[1].size }
+    else
+      { count: 0 }
+    end
   end
 
   def steam_data
