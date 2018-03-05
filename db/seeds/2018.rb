@@ -74,28 +74,28 @@ create_matches(tournament, morning_schedule, morning_start, 12.minutes, morning_
 
 # Afternoon - can we get 2 sessions of each going?
 mk2 = Game.find_by(name: 'Mortal Kombat II')
-blitz = Game.find_by(name: 'Blitz 2000')
+blitz = Game.find_by(name: 'Blitz 2001')
 add_scores(mk2, [3, 0])
 add_scores(blitz, [3, 0])
 afternoon_games = [mk2, blitz]
 afternoon_start = DateTime.new(2018, 3, 10, 12, 30, 0, '-5:00')
 afternoon_schedule = [
-  [[6,4], [3,5]],
-  [[1,2], [8,7]],
-  [[3,6], [7,4]],
-  [[2,8], [1,5]],
-  [[7,8], [1,2]],
-  [[5,4], [3,6]],
-  [[1,8], [7,3]],
-  [[5,4], [2,6]],
-  [[7,5], [2,6]],
-  [[3,8], [1,4]],
-  [[2,6], [3,1]],
-  [[7,5], [8,4]],
-  [[6,4], [7,5]],
-  [[1,3], [8,2]],
-  [[7,2], [6,8]],
-  [[3,1], [5,4]]
+  [[5,3], [7,6]],
+  [[4,7], [5,1]],
+  [[2,1], [3,8]],
+  [[8,6], [4,2]],
+  [[5,4], [6,2]],
+  [[2,3], [1,4]],
+  [[8,7], [3,1]],
+  [[6,1], [7,3]],
+  [[5,2], [4,6]],
+  [[8,4], [5,7]],
+  [[6,3], [5,8]],
+  [[1,7], [2,8]],
+  [[5,6], [2,1]],
+  [[1,8], [3,7]],
+  [[7,2], [5,4]],
+  [[3,4], [6,8]]
 ]
 create_matches(tournament, afternoon_schedule, afternoon_start, 8.minutes, afternoon_games)
 
