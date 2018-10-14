@@ -1,15 +1,19 @@
 class GamesController < ApplicationController
+  before_action :set_tournament, except: [:show, :create]
   before_action :set_game, only: [:show, :update, :destroy]
 
   def index
-    @games = Game.all
+    @games = @tournament.games
   end
 
   def show
   end
 
   def matches
-    @matches = Match.where(game_id: params[:id]).all
+    @matches = Match.where(
+      tournament_id: params[:tournament_id],
+      game_id: params[:id]
+    ).all
     render 'matches/index'
   end
 
@@ -37,12 +41,15 @@ class GamesController < ApplicationController
 
   private
 
-    def set_game
-      @game = Game.find(params[:id])
-    end
+  def set_tournament
+    @tournament = Tournament.find(params[:tournament_id])
+  end
 
-    def game_params
-      params.require(:game).permit(:name, :img_url, :players)
-    end
+  def set_game
+    @game = Game.find(params[:id])
+  end
 
+  def game_params
+    params.require(:game).permit(:name, :img_url, :players)
+  end
 end

@@ -1,25 +1,19 @@
 Rails.application.routes.draw do
   resources :tournaments, defaults: {format: :json} do
     resources :matches, defaults: {format: :json}, only: [:index, :create]
-    resources :players, defaults: {format: :json}
+    resources :players, defaults: {format: :json}, only: [:index]
+    resources :games, defaults: {format: :json} do
+      member do
+        get :matches
+      end
+    end
   end
 
+  resources :players, defaults: {format: :json}, except: [:index]
+  resources :games, defaults: {format: :json}, only: [:show, :create]
   resources :matches, defaults: {format: :json}, only: [:show, :destroy, :update] do
     member do
       patch :score
-    end
-  end
-
-  resources :players, defaults: {format: :json}, only: [:show]
-
-  resources :games, defaults: {format: :json} do
-    collection do
-      get :scores
-    end
-
-    member do
-      get :scores
-      get :matches
     end
   end
 end

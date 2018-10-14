@@ -1,5 +1,5 @@
 class PlayersController < ApplicationController
-  before_action :set_tournament, except: [:show]
+  before_action :set_tournament, only: [:index]
   before_action :set_player, only: [:show, :update, :destroy]
 
   def index
