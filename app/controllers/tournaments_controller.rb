@@ -32,11 +32,11 @@ class TournamentsController < ApplicationController
 
   private
 
-    def set_tournament
-      @tournament = Tournament.find(params[:id])
-    end
+  def set_tournament
+    @tournament = Tournament.find(params[:id])
+  end
 
-    def tournament_params
-      params.require(:tournament).permit(:name, :description)
-    end
+  def tournament_params
+    params.require(:tournament).permit(:name, :description)
+  end
 end

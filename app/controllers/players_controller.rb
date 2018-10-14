@@ -1,8 +1,9 @@
 class PlayersController < ApplicationController
+  before_action :set_tournament, except: [:show]
   before_action :set_player, only: [:show, :update, :destroy]
 
   def index
-    @players = Player.all
+    @players = @tournament.players
   end
 
   def show
@@ -32,12 +33,15 @@ class PlayersController < ApplicationController
 
   private
 
-    def set_player
-      @player = Player.find(params[:id])
-    end
+  def set_tournament
+    @tournament = Tournament.find(params[:tournament_id])
+  end
 
+  def set_player
+    @player = Player.find(params[:id])
+  end
 
-    def player_params
-      params.require(:player).permit(:name, :steam_id)
-    end
+  def player_params
+    params.require(:player).permit(:name, :steam_id)
+  end
 end

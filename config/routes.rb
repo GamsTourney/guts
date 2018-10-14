@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :tournaments, defaults: {format: :json} do
     resources :matches, defaults: {format: :json}, only: [:index, :create]
+    resources :players, defaults: {format: :json}
   end
 
   resources :matches, defaults: {format: :json}, only: [:show, :destroy, :update] do
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :players, defaults: {format: :json}
+  resources :players, defaults: {format: :json}, only: [:show]
 
   resources :games, defaults: {format: :json} do
     collection do
@@ -21,6 +22,4 @@ Rails.application.routes.draw do
       get :matches
     end
   end
-
-  resources :scores, defaults: {format: :json}, only: [:show, :index]
 end

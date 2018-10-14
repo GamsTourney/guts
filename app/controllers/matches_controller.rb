@@ -43,15 +43,16 @@ class MatchesController < ApplicationController
   end
 
   private
-    def set_tournament
-      @tournament = Tournament.find(params[:tournament_id])
-    end
+  
+  def set_tournament
+    @tournament = Tournament.find(params[:tournament_id])
+  end
 
-    def set_match
-      @match = Match.find(params[:id])
-    end
+  def set_match
+    @match = Match.find(params[:id])
+  end
 
-    def match_params
-      params.require(:match).permit(:game_id, :start_time)
-    end
+  def match_params
+    params.require(:match).permit(:game_id, :start_time)
+  end
 end
