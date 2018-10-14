@@ -2,11 +2,12 @@ require 'test_helper'
 
 class PlayersControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @tournament = tournaments(:one)
     @player = players(:one)
   end
 
   test "should get index" do
-    get players_url, as: :json
+    get tournament_players_url(@tournament), as: :json
     assert_response :success
   end
 
