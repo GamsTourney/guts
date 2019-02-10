@@ -1,0 +1,28 @@
+---
+- name: Counter-Strike: Global Offensive
+  players: 8
+  img_url: http://via.placeholder.com/250x150
+- name: Chivalry
+  players: 8
+  img_url: http://via.placeholder.com/250x150
+- name: Battlerite
+  players: 4
+  img_url: http://via.placeholder.com/250x150
+- name: Mario Tennis Aces
+  players: 4
+  img_url: http://via.placeholder.com/250x150
+- name: Diddy Kong Racing
+  players: 4
+  img_url: http://via.placeholder.com/250x150
+- name: Pokemon Stadium
+  players: 4
+  img_url: http://via.placeholder.com/250x150
+- name: Marvel vs. Capcom 3
+  players: 2
+  img_url: http://via.placeholder.com/250x150
+- name: Swords and Soldiers
+  players: 2
+  img_url: http://via.placeholder.com/250x150
+- name: Icy Tower
+  players: 1
+  img_url: http://via.placeholder.com/250x150
