@@ -13,7 +13,6 @@ tournament.players = players
 games = YAML::load_file("db/seeds/2018/games.yml")
 Game.create(games)
 
-
 # All Day
 gh3 = Game.find_by(name: 'Guitar Hero 3')
 pac = Game.find_by(name: 'Ms. Pac-Man')
