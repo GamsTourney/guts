@@ -46,4 +46,3 @@ class Tournament < ApplicationRecord
     }
   end
 end
-
