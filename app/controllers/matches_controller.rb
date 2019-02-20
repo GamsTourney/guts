@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   before_action :set_tournament, only: [:index, :create]
-  before_action :set_match, only: [:show, :update, :destroy, :score]
+  before_action :set_match, only: [:show, :update, :destroy, :score, :match_competitors]
 
   def index
     @matches = @tournament.matches
@@ -42,8 +42,11 @@ class MatchesController < ApplicationController
     render 'show'
   end
 
+  def match_competitors
+  end
+
   private
-  
+
   def set_tournament
     @tournament = Tournament.find(params[:tournament_id])
   end

@@ -6,6 +6,10 @@ class MatchCompetitor < ApplicationRecord
     competitor.player
   end
 
+  def player_id
+    player.id
+  end
+
   def game
     match.game
   end
