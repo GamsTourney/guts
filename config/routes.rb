@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :matches, defaults: {format: :json}, only: [:show, :destroy, :update] do
     member do
       patch :score
+      get :match_competitors
     end
   end
 end
