@@ -1,5 +1,7 @@
 require_relative './helpers'
 
+ActiveRecord::Base.transaction do
+
 # Tournament
 tournament = Tournament.create(name: 'Gams 2018')
 tournament_start = DateTime.new(2018, 3, 10, 10, 0, 0, '-5:00')
@@ -18,8 +20,8 @@ gh3 = Game.find_by(name: 'Guitar Hero 3')
 pac = Game.find_by(name: 'Ms. Pac-Man')
 Helpers.add_scores(gh3, [8, 6, 4, 3, 2, 1, 0, 0])
 Helpers.add_scores(pac, [8, 6, 4, 3, 2, 1, 0, 0])
-Helpers.create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [gh3], true)
-Helpers.create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [pac], true)
+Helpers.create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [gh3], { hidden: true })
+Helpers.create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [pac], { hidden: true })
 
 # Morning
 unreal = Game.find_by(name: 'Unreal Tournament')
@@ -89,3 +91,5 @@ late_schedule =[
   [[2,4,6,8], [1,3,5,7]]
 ]
 Helpers.create_matches(tournament, late_schedule, late_start, 12.minutes, late_games)
+
+end
