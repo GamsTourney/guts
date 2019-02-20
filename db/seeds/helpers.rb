@@ -6,8 +6,7 @@ module Helpers
   end
 
   def self.gather_competitors(tournament, ids)
-    competitors = tournament.competitors
-    ids.map { |id| competitors[id - 1] }
+    return tournament.competitors.where(player_id: ids)
   end
 
   def self.create_matches(tournament, schedule, start, game_duration, games, hidden = false)
