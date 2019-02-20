@@ -8,4 +8,3 @@ json.array! @matches.each do |match|
     json.partial! 'application/includes', obj: match, allowed: [:players, :results]
   end
 end
-
