@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-  before_action :set_tournament, only: [:show, :update, :destroy, :stats]
+  before_action :set_tournament, only: [:show, :update, :destroy, :stats, :match_competitors]
 
   def index
     @tournaments = Tournament.all

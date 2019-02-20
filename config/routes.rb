@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :tournaments, defaults: {format: :json} do
+    member do
+      get :match_competitors
+    end
+
     resources :matches, defaults: {format: :json}, only: [:index, :create]
     resources :players, defaults: {format: :json}, only: [:index]
     resources :games, defaults: {format: :json} do

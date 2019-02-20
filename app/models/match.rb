@@ -8,15 +8,11 @@ class Match < ApplicationRecord
     competitors.collect(&:player)
   end
 
-  def player_ids
-    players.collect(&:id)
-  end
-
   def results
     result_list = []
     match_competitors.each do |match_competitor|
       result = {
-        player_id: match_competitor.player.id,
+        player_id: match_competitor.player_id,
         position: match_competitor.position,
         points: match_competitor.points
       }
