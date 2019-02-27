@@ -25,4 +25,5 @@ group :development do
   gem 'rails-erd', require: false
 end
 
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
