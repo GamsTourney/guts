@@ -3,5 +3,6 @@ json.url match_url(@match, format: :json)
 json.completed @match.completed?
 json.game @match.game
 unless @include.empty?
-  json.partial! 'application/includes', obj: @match, allowed: [:players, :results, :game]
+  json.partial! 'application/includes', obj: @match,
+  allowed: [:players, :results, :game]
 end

@@ -6,8 +6,9 @@ class MatchCompetitor < ApplicationRecord
     competitor.player
   end
 
+  # TODO: Optimize
   def player_id
-    player.id
+    competitor.player.id
   end
 
   def game

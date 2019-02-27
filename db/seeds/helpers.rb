@@ -6,6 +6,7 @@ module Helpers
   end
 
   def self.gather_competitors(tournament, ids, team = nil)
+    puts team
     competitors = tournament.competitors.where(player_id: ids)
     competitors.map do |c|
       MatchCompetitor.new({ competitor_id: c.id, team: team })
@@ -18,8 +19,9 @@ module Helpers
       event.each_with_index do |players, eventIdx|
         competitors = []
         if (players[eventIdx].kind_of?(Array))
+          teamAdj = players.length * eventIdx
           players.each_with_index do |team, teamIdx|
-            competitors.concat(gather_competitors(tournament, team, teamIdx))
+            competitors.concat(gather_competitors(tournament, team, teamAdj + teamIdx))
           end
         else
           competitors = gather_competitors(tournament, players)

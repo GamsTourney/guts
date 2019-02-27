@@ -8,6 +8,14 @@ class Match < ApplicationRecord
     competitors.collect(&:player)
   end
 
+  def group_id
+    groups = Match.where(tournament: tournament, game: game, start_time: start_time)
+    if groups.length > 1
+      return groups.pluck(:id).index(id)
+    end
+  end
+
+  # TODO: Optimize
   def results
     result_list = []
     match_competitors.each do |match_competitor|
