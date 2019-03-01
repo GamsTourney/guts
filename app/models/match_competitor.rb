@@ -1,14 +1,14 @@
 class MatchCompetitor < ApplicationRecord
+  @@player_cache = {}
   belongs_to :match
   belongs_to :competitor
 
   def player
-    competitor.player
+    @@player_cache[competitor_id] ||= competitor.player
   end
 
-  # TODO: Optimize
   def player_id
-    competitor.player.id
+    player.id
   end
 
   def game
