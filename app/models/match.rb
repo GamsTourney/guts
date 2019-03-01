@@ -15,7 +15,7 @@ class Match < ApplicationRecord
     end
   end
 
-  # TODO: Optimize
+  # Do we need this anymore since its just mc data now?
   def results
     result_list = []
     match_competitors.each do |match_competitor|
@@ -30,24 +30,20 @@ class Match < ApplicationRecord
   end
 
   def completed?
-    match_competitors.any? { |mc| mc.position }
+    match_competitors.any? { |mc| mc.points && mc.points > 0 }
   end
 
   def scores
     game.scores
   end
 
-  # Update results for the match competitors. Expects a list of player ids
-  # This can probably be cleaned up with a more direct query for match_competitors
-  def submit_results(players)
-    competitor_map = competitors.index_by(&:player_id)
-    match_competitor_map = match_competitors.index_by(&:competitor_id)
+  def submit_results(scores)
     Match.transaction do
-      players.each_with_index  do |player, idx|
-        competitor = competitor_map[player]
-        match_competitor = match_competitor_map[competitor.id]
-        match_competitor.position = idx
-        match_competitor.save
+      scores.each do |score|
+        mc = MatchCompetitor.find(score['match_competitor_id'])
+        mc.position = score['position']
+        mc.points = score['points']
+        mc.save
       end
     end
   end

@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
-  before_action :set_tournament, except: [:show, :create]
-  before_action :set_game, only: [:show, :update, :destroy]
+  before_action :set_tournament, except: [:show, :create, :scores]
+  before_action :set_game, only: [:show, :update, :destroy, :scores]
 
   def index
     @games = @tournament.games
@@ -15,6 +15,9 @@ class GamesController < ApplicationController
       game_id: params[:id]
     ).all
     render 'matches/index'
+  end
+
+  def scores
   end
 
   def create

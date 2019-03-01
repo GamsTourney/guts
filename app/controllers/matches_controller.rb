@@ -37,8 +37,8 @@ class MatchesController < ApplicationController
       results: true,
       players: true
     }
-    player_ids = params[:order].split(',').collect(&:to_i)
-    @match.submit_results(player_ids)
+    scores = JSON.parse(params[:scores])
+    @match.submit_results(scores)
     render 'show'
   end
 

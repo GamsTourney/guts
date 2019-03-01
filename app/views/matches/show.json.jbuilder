@@ -1,4 +1,4 @@
-json.extract! @match, :id, :game_id, :tournament_id, :start_time, :end_time, :hidden
+json.extract! @match, :id, :game_id, :tournament_id, :score_type, :start_time, :end_time, :hidden
 json.url match_url(@match, format: :json)
 json.completed @match.completed?
 json.game @match.game

@@ -14,7 +14,11 @@ Rails.application.routes.draw do
   end
 
   resources :players, defaults: {format: :json}, except: [:index]
-  resources :games, defaults: {format: :json}, only: [:show, :create]
+  resources :games, defaults: {format: :json}, only: [:show, :create] do
+    member do
+      get :scores
+    end
+  end
   resources :matches, defaults: {format: :json}, only: [:show, :destroy, :update] do
     member do
       patch :score
