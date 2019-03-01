@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190220142523) do
+ActiveRecord::Schema.define(version: 20190301202357) do
 
   create_table "competitors", force: :cascade do |t|
     t.integer "player_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20190220142523) do
     t.datetime "updated_at", null: false
     t.integer "position"
     t.integer "team"
+    t.integer "points", default: 0
   end
 
   create_table "matches", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 20190220142523) do
     t.integer "tournament_id"
     t.datetime "end_time"
     t.boolean "hidden"
+    t.string "score_type"
   end
 
   create_table "players", force: :cascade do |t|

@@ -14,12 +14,4 @@ class MatchCompetitor < ApplicationRecord
   def game
     match.game
   end
-
-  def points
-    points = 0
-    if position
-      points = match.scores.where(position: position).first.value
-    end
-    points
-  end
 end
