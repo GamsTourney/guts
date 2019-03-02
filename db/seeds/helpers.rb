@@ -13,7 +13,7 @@ module Helpers
     end
   end
 
-  def self.create_matches(tournament, schedule, start, game_duration, games, options = {})
+  def self.create_matches(tournament, schedule, start, game_duration, games, score_type, options = {})
     schedule.each_with_index do |event, scheduleIdx|
       start_time = start + (scheduleIdx * game_duration)
       event.each_with_index do |players, eventIdx|
@@ -32,7 +32,8 @@ module Helpers
           match_competitors: competitors,
           start_time: start_time,
           end_time: start_time + game_duration,
-          hidden: options[:hidden]
+          hidden: options[:hidden],
+          score_type: score_type
         )
       end
     end

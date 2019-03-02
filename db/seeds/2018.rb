@@ -20,8 +20,8 @@ gh3 = Game.find_by(name: 'Guitar Hero 3')
 pac = Game.find_by(name: 'Ms. Pac-Man')
 Helpers.add_scores(gh3, [8, 6, 4, 3, 2, 1, 0, 0])
 Helpers.add_scores(pac, [8, 6, 4, 3, 2, 1, 0, 0])
-Helpers.create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [gh3], { hidden: true })
-Helpers.create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [pac], { hidden: true })
+Helpers.create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [gh3], 'rank', { hidden: true })
+Helpers.create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], tournament_start, 9.hours, [pac], 'rank', { hidden: true })
 
 # Morning
 unreal = Game.find_by(name: 'Unreal Tournament')
@@ -42,7 +42,7 @@ morning_schedule = [
   [[8,2,1,7], [4,3,5,6]],
   [[2,4,6,8], [1,3,5,7]]
 ]
-Helpers.create_matches(tournament, morning_schedule, morning_start, 12.minutes, morning_games)
+Helpers.create_matches(tournament, morning_schedule, morning_start, 12.minutes, morning_games, 'rank')
 
 # Afternoon - can we get 2 sessions of each going?
 mk2 = Game.find_by(name: 'Mortal Kombat II')
@@ -69,7 +69,7 @@ afternoon_schedule = [
   [[7,2], [5,4]],
   [[3,4], [6,8]]
 ]
-Helpers.create_matches(tournament, afternoon_schedule, afternoon_start, 8.minutes, afternoon_games)
+Helpers.create_matches(tournament, afternoon_schedule, afternoon_start, 8.minutes, afternoon_games, 'rank')
 
 # Late Afternoon Start
 grid = Game.find_by(name: 'Grid 2')
@@ -90,6 +90,6 @@ late_schedule =[
   [[1,8,5,6], [2,3,4,7]],
   [[2,4,6,8], [1,3,5,7]]
 ]
-Helpers.create_matches(tournament, late_schedule, late_start, 12.minutes, late_games)
+Helpers.create_matches(tournament, late_schedule, late_start, 12.minutes, late_games, 'rank')
 
 end
