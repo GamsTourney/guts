@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost:3000', 'glory-dev.herokuapp.com', 'gams.wagner.systems'
+    origins 'localhost:3000', 'glory-dev.herokuapp.com', 'www.gambos.biz'
 
     resource '*',
       headers: :any,
