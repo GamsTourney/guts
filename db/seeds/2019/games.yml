@@ -1,28 +1,28 @@
 ---
 - name: 'Counter-Strike: Global Offensive'
   players: 8
-  img_url: http://via.placeholder.com/250x150
+  img_url: https://steamcdn-a.akamaihd.net/steam/subs/54029/capsule_616x353.jpg
 - name: Chivalry
   players: 8
-  img_url: http://via.placeholder.com/250x150
+  img_url: http://www.digiseller.ru/preview/93702/p1_2004446_cf03ff02.jpg
 - name: Battlerite
   players: 4
-  img_url: http://via.placeholder.com/250x150
+  img_url: https://cdn.battlerite.com/www3/images/static/bg/battlerite_card.png
 - name: Mario Tennis Aces
   players: 4
-  img_url: http://via.placeholder.com/250x150
+  img_url: https://www.geek.com/wp-content/uploads/2018/06/mario-tennis-aces-logo-625x352.jpg
 - name: Diddy Kong Racing
   players: 4
-  img_url: http://via.placeholder.com/250x150
+  img_url: https://images-na.ssl-images-amazon.com/images/I/51zFNLV%2BoEL._SX425_.jpg
 - name: Pokemon Stadium
   players: 4
-  img_url: http://via.placeholder.com/250x150
+  img_url: https://www.lukiegames.com/assets/images/N64/n64_pokemon_stadium_p_j68m69.jpg
 - name: Marvel vs. Capcom 3
   players: 2
-  img_url: http://via.placeholder.com/250x150
+  img_url: https://www.topbestalternatives.com/wp-content/uploads/2017/11/marvel-vs.-capcom-3-fate-of-two-worlds.jpg
 - name: Swords and Soldiers
   players: 2
-  img_url: http://via.placeholder.com/250x150
+  img_url: https://www.ziperto.com/wp-content/uploads/2018/05/Swords-and-Soldiers-WII-ISO-Cover-Ziperto.jpg
 - name: Icy Tower
   players: 8
-  img_url: http://via.placeholder.com/250x150
+  img_url: https://www.wikihow.com/images/thumb/d/d8/Play-Icy-Tower-Funmode-Step-1.jpg/aid628477-v4-728px-Play-Icy-Tower-Funmode-Step-1.jpg
