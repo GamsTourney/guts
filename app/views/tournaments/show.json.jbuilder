@@ -1,4 +1,4 @@
-json.extract! @tournament, :id, :name, :description
+json.extract! @tournament, :id, :name, :description, :locked
 json.url tournament_url(@tournament, format: :json)
 json.stats @tournament.gather_stats
 unless @include.empty?

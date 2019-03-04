@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190301202357) do
+ActiveRecord::Schema.define(version: 20190304004825) do
 
   create_table "competitors", force: :cascade do |t|
     t.integer "player_id"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20190301202357) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "locked", default: false
   end
 
 end
