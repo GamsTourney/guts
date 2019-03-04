@@ -9,24 +9,18 @@ class Player < ApplicationRecord
   end
 
   def score(tournament)
-    earned_points = tournament_competitor(tournament).match_competitors.collect(&:points)
-    earned_points.inject(&:+) || 0
+    tournament_competitor(tournament).match_competitors.sum(:points)
   end
 
+  def non_zero_rounds(tournament)
+    tournament_competitor(tournament).match_competitors.where("points != 0").count
+  end
+
+  # Gams 2019 only
   def longest_streak(tournament)
-    rankings = tournament_competitor(tournament).match_competitors.collect(&:position)
-    rankings.chunk { |x| x == 0 || nil }.map { |_, x| x.size }.max || 0
-  end
-
-  def most_game_wins(tournament)
-    match_competitors = tournament_competitor(tournament).match_competitors
-    game_wins = match_competitors.select { |mc| mc.position == 0 || nil }.collect(&:match).group_by(&:game_id)
-    game_win_stats = game_wins.max_by { |matches| matches.size }
-    if game_win_stats
-      { game_id: game_win_stats[0], count: game_win_stats[1].size }
-    else
-      { count: 0 }
-    end
+    competitor = tournament_competitor(tournament)
+    streaks = MatchCompetitor.where(competitor: competitor).pluck(:points)
+    streaks.chunk { |x| x >= 2 || nil }.map { |_, x| x.size }.max
   end
 
   def steam_data

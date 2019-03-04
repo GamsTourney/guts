@@ -7,6 +7,14 @@ class Tournament < ApplicationRecord
 
   validates :name, presence: true
 
+  def reset
+    matches.each do |m|
+      m.match_competitors.each do |mc|
+        mc.update(position: nil, points: 0)
+      end
+    end
+  end
+
   def standings
     standings_collection = []
     players.each do |player|
@@ -24,24 +32,24 @@ class Tournament < ApplicationRecord
       return {}
     end
 
-    second_places = match_competitors.where(position: 1).group(:competitor_id).size
-    most_second = second_places.max_by{|_, v| v}
-    longest_streak_player = players.max_by{ |p| p.longest_streak(self) }
-    game_crusher = players.max_by{ |p| p.most_game_wins(self)[:count] }
+    all_points = match_competitors.sum(:points)
+    random_index = all_points % 8
+    random_player = players.all[random_index]
+    point_grabber = players.max_by { |p| p.non_zero_rounds(self) }
+    longest_streak = players.max_by { |p| p.longest_streak(self) || 0 }
 
     {
-      most_second_places: {
-        player: Competitor.find(most_second[0]).player_id,
-        value: most_second[1]
+      point_grabber: {
+        player: point_grabber.id,
+        value: point_grabber.non_zero_rounds(self)
       },
       longest_streak: {
-        player: longest_streak_player.id,
-        value: longest_streak_player.longest_streak(self)
+        player: longest_streak.id,
+        value: longest_streak.longest_streak(self) || 0
       },
-      most_game_wins: {
-        player: game_crusher.id,
-        value: game_crusher.most_game_wins(self)[:count],
-        game: Game.find(game_crusher.most_game_wins(self)[:game_id])
+      most_disappointing: {
+        player: random_player.id,
+        value: all_points
       }
     }
   end
