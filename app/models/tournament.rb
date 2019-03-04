@@ -8,6 +8,10 @@ class Tournament < ApplicationRecord
   validates :name, presence: true
 
   def reset
+    if locked
+      raise 'Tournament is locked! You must unlock the tournament to reset.'
+    end
+
     matches.each do |m|
       m.match_competitors.each do |mc|
         mc.update(position: nil, points: 0)
