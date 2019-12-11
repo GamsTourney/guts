@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.2.3'
+gem 'knock'
 gem 'puma'
 gem 'jbuilder'
 gem 'steam_web_api'
