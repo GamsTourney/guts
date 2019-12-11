@@ -16,13 +16,6 @@ class Player < ApplicationRecord
     tournament_competitor(tournament).match_competitors.where("points != 0").count
   end
 
-  # Gams 2019 only
-  def longest_streak(tournament)
-    competitor = tournament_competitor(tournament)
-    streaks = MatchCompetitor.where(competitor: competitor).pluck(:points)
-    streaks.chunk { |x| x >= 2 || nil }.map { |_, x| x.size }.max
-  end
-
   def steam_data
     SteamCache.get_player_summary(self.steam_id)
   end

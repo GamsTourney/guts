@@ -10,8 +10,8 @@ class ScoresController < ApplicationController
 
   private
 
-    def set_score
-      @score = Score.find(params[:id])
-    end
+  def set_score
+    @score = Score.find(params[:id])
+  end
 
 end

@@ -3,7 +3,7 @@ class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :update, :destroy, :score, :match_competitors]
 
   def index
-    @matches = @tournament.matches
+    @matches = @tournament.matches.includes('match_competitors')
   end
 
   def show
