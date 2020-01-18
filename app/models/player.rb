@@ -13,15 +13,7 @@ class Player < ApplicationRecord
     tournament_competitor(tournament).match_competitors.sum(:points)
   end
 
-  def non_zero_rounds(tournament)
-    tournament_competitor(tournament).match_competitors.where("points != 0").count
-  end
-
   def steam_data
     SteamCache.get_player_summary(self.steam_id)
-  end
-
-  def matches
-    competitors.collect(&:matches).flatten
   end
 end

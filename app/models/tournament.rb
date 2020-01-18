@@ -22,9 +22,18 @@ class Tournament < ApplicationRecord
   def standings
     standings_collection = []
     players.each do |player|
+      avatar = nil
+      if player.steam_data
+        avatar = player.steam_data['avatar']
+      end
+      player_id = player.id
       standings_collection << {
-        player: player.id,
-        score: player.score(self)
+        id: "#{id}:#{player_id}",
+        score: player.score(self),
+        name: player.name.split(' ').first,
+        avatar: avatar,
+        player_id: player_id,
+        tournament_id: id
       }
     end
     standings_collection

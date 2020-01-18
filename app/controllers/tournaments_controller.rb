@@ -1,5 +1,5 @@
 class TournamentsController < ApplicationController
-  before_action :set_tournament, only: [:show, :update, :destroy, :stats, :match_competitors]
+  before_action :set_tournament, only: [:show, :update, :destroy, :standings]
 
   def index
     @tournaments = Tournament.all
@@ -29,6 +29,11 @@ class TournamentsController < ApplicationController
   def destroy
     @tournament.destroy
   end
+
+  def standings
+    @standings = @tournament.standings
+  end
+
 
   private
 
