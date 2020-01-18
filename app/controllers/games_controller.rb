@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show, :update, :destroy, :scores]
 
   def index
-    @games = @tournament.games
+    @games = @tournament.games.includes('scores')
   end
 
   def show
