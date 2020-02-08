@@ -6,9 +6,9 @@ module Helpers
   end
 
   def self.gather_competitors(tournament, ids, team = nil)
-    puts team
-    competitors = tournament.competitors.where(player_id: ids)
-    competitors.map do |c|
+    competitors = tournament.competitors.all
+    ids.map do |id|
+      c = competitors[id - 1]
       MatchCompetitor.new({ competitor_id: c.id, team: team })
     end
   end
