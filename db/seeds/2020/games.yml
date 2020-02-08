@@ -1,0 +1,25 @@
+---
+- name: 'Halo: Reach'
+  players: 8
+  img_url: ''
+- name: Mario Kart 8
+  players: 8
+  img_url: ''
+- name: NBA Hang Time
+  players: 4
+  img_url: ''
+- name: Worms Clan Wars
+  players: 4
+  img_url: ''
+- name: Speedrunners
+  players: 4
+  img_url: ''
+- name: Smash Ultimate
+  players: 2
+  img_url: ''
+- name: Nidhogg
+  players: 2
+  img_url: ''
+- name: Amorphous+
+  players: 8
+  img_url: ''
