@@ -33,10 +33,6 @@ class MatchesController < ApplicationController
   end
 
   def score
-    @include[controller_name] = {
-      results: true,
-      players: true
-    }
     scores = JSON.parse(params[:scores])
     @match.submit_results(scores)
     render 'show'

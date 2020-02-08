@@ -69,7 +69,7 @@ Helpers.create_matches(tournament, nidhogg_schedule, nidhogg_start, 5.minutes, [
 
 # Worms
 worms = Game.find_by(name: 'Worms Clan Wars')
-Helpers.add_scores(nidhogg, [4, 2, 1, 0])
+Helpers.add_scores(worms, [4, 2, 1, 0])
 w_start = DateTime.new(2020, 2, 29, 14, 0, 0, '-5:00')
 w_schedule = [
   [[1,6,7,8],	[2,3,4,5]],

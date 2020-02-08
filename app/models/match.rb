@@ -3,6 +3,7 @@ class Match < ApplicationRecord
   has_many :competitors, through: :match_competitors
   belongs_to :game
   belongs_to :tournament
+  accepts_nested_attributes_for :match_competitors
 
   def players
     competitors.collect(&:player)
