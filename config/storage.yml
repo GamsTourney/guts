@@ -1,0 +1,19 @@
+local:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+google_local:
+  service: GCS
+  project: gams
+  bucket: gams-pictures
+  credentials: <%= Rails.root.join("config/secrets/gcs.json") %>
+
+test:
+  service: Disk
+  root: <%= Rails.root.join("tmp/storage") %>
+
+google:
+  service: GCS
+  project: gams
+  bucket: gams-pictures
+  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>

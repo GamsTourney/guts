@@ -1,6 +1,6 @@
 class MatchesController < ApplicationController
   before_action :set_tournament, only: [:index, :create]
-  before_action :set_match, only: [:show, :update, :destroy, :score, :match_competitors]
+  before_action :set_match, only: [:show, :update, :destroy, :match_competitors, :attach_picture]
 
   def index
     @matches = @tournament.matches.includes('match_competitors')
@@ -32,13 +32,13 @@ class MatchesController < ApplicationController
     @match.destroy
   end
 
-  def score
-    scores = JSON.parse(params[:scores])
-    @match.submit_results(scores)
-    render 'show'
+  def match_competitors
   end
 
-  def match_competitors
+  def attach_picture
+    picture = params[:result_picture]
+    @match.result_picture.attach(picture)
+    render :show, status: :ok, location: @match
   end
 
   private
@@ -52,6 +52,6 @@ class MatchesController < ApplicationController
   end
 
   def match_params
-    params.require(:match).permit(:game_id, :start_time)
+    params.require(:match).permit!
   end
 end

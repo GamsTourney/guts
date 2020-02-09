@@ -3,6 +3,7 @@ class Match < ApplicationRecord
   has_many :competitors, through: :match_competitors
   belongs_to :game
   belongs_to :tournament
+  has_one_attached :result_picture
   accepts_nested_attributes_for :match_competitors
 
   def players
@@ -17,17 +18,6 @@ class Match < ApplicationRecord
     groups = Match.where(tournament: tournament, game: game, start_time: start_time)
     if groups.length > 1
       return groups.pluck(:id).index(id)
-    end
-  end
-
-  def submit_results(scores)
-    Match.transaction do
-      scores.each do |score|
-        mc = MatchCompetitor.find(score['match_competitor_id'])
-        mc.position = score['position']
-        mc.points = score['points']
-        mc.save
-      end
     end
   end
 end

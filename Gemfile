@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.2.3'
+gem 'google-cloud-storage'
 gem 'knock'
 gem 'puma'
 gem 'jbuilder'

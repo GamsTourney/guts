@@ -6,7 +6,11 @@ Rails.application.routes.draw do
         get 'standings'
       end
 
-      resources :matches
+      resources :matches do
+        member do
+          post 'attach_picture'
+        end
+      end
       resources :games
       resources :players
     end
