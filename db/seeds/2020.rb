@@ -44,7 +44,7 @@ hang_schedule = [
   [[[3,4], [2,5]], [[1,6], [7,8]]],
   [[[3,5], [2,6]], [[1,7], [4,8]]]
 ]
-Helpers.create_matches(tournament, hang_schedule, hang_start, 10.minutes, [hang, hang], 'manual')
+Helpers.create_matches(tournament, hang_schedule, hang_start, 8.minutes, [hang, hang], 'manual')
 
 # Amorphous
 amorphous = Game.find_by(name: 'Amorphous+')
@@ -69,18 +69,16 @@ Helpers.create_matches(tournament, nidhogg_schedule, nidhogg_start, 5.minutes, [
 
 # Worms
 worms = Game.find_by(name: 'Worms Clan Wars')
-Helpers.add_scores(worms, [4, 2, 1, 0])
+Helpers.add_scores(worms, [3, 2, 1, 0])
 w_start = DateTime.new(2020, 2, 29, 14, 0, 0, '-5:00')
 w_schedule = [
   [[1,6,7,8],	[2,3,4,5]],
   [[1,3,4,6],	[2,5,7,8]],
   [[1,2,5,6],	[3,4,7,8]],
   [[1,2,3,7],	[4,5,6,8]],
-  [[1,3,5,8],	[2,4,6,7]],
-  [[2,3,6,8],	[1,4,5,7]],
-  [[3,5,6,7],	[1,2,4,8]]
+  [[1,3,5,8],	[2,4,6,7]]
 ]
-Helpers.create_matches(tournament, w_schedule, w_start, 8.minutes, [worms, worms], 'manual')
+Helpers.create_matches(tournament, w_schedule, w_start, 12.minutes, [worms, worms], 'manual')
 
 # Smash Ultimate
 smash = Game.find_by(name: 'Smash Ultimate')
@@ -99,7 +97,6 @@ Helpers.create_matches(tournament, smash_schedule, smash_start, 7.minutes, [smas
 
 # Speedrunners
 speedrunners = Game.find_by(name: 'Speedrunners')
-Helpers.add_scores(speedrunners, [4, 2, 1, 0])
 speed_start = DateTime.new(2020, 2, 29, 16, 0, 0, '-5:00')
 speed_schedule = [
   [[1,4,5,8], [2,3,6,7]],
@@ -110,9 +107,9 @@ speed_schedule = [
   [[3,5,7,8], [1,2,4,6]],
   [[1,5,6,7], [2,3,4,8]]
 ]
-Helpers.create_matches(tournament, speed_schedule, speed_start, 5.minutes, [speedrunners, speedrunners], 'rank')
+Helpers.create_matches(tournament, speed_schedule, speed_start, 5.minutes, [speedrunners, speedrunners], 'manual')
 
-# Chivalry
+# Kart
 kart = Game.find_by(name: 'Mario Kart 8')
 Helpers.add_scores(kart, [4, 3, 2, 2, 1, 1, 0, 0])
 kart_start = DateTime.new(2020, 2, 29, 17, 0, 0, '-5:00')
