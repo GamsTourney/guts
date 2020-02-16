@@ -54,7 +54,7 @@ Helpers.create_matches(tournament, [[[1,2,3,4,5,6,7,8]]], amorphous_start, 30.mi
 
 # Nidhogg
 nidhogg = Game.find_by(name: 'Nidhogg')
-Helpers.add_scores(nidhogg, [2, 0])
+Helpers.add_scores(nidhogg, [1, 0])
 nidhogg_start = DateTime.new(2020, 2, 29, 13, 05, 0, '-5:00')
 nidhogg_schedule = [
   [[2,4], [1,5], [6,7], [3,8]],

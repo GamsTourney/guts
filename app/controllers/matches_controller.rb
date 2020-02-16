@@ -14,7 +14,9 @@ class MatchesController < ApplicationController
     @match.tournament = @tournament
 
     if @match.save
-      render :show, status: :created, location: @match
+      json = render :show, status: :ok, location: @match
+      ActionCable.server.broadcast 'matches_channel', json
+      json
     else
       render json: @match.errors, status: :unprocessable_entity
     end
@@ -22,7 +24,9 @@ class MatchesController < ApplicationController
 
   def update
     if @match.update(match_params)
-      render :show, status: :ok, location: @match
+      json = render :show, status: :ok, location: @match
+      ActionCable.server.broadcast 'matches_channel', json
+      json
     else
       render json: @match.errors, status: :unprocessable_entity
     end
@@ -38,7 +42,9 @@ class MatchesController < ApplicationController
   def attach_picture
     picture = params[:result_picture]
     @match.result_picture.attach(picture)
-    render :show, status: :ok, location: @match
+    json = render :show, status: :ok, location: @match
+    ActionCable.server.broadcast 'matches_channel', json
+    json
   end
 
   private
