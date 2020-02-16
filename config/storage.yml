@@ -16,4 +16,4 @@ google:
   service: GCS
   project: gams
   bucket: gams-pictures
-  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>
+  credentials: <%= Rails.application.credentials.gcs.to_json %>
