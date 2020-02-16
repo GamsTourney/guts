@@ -1,9 +1,9 @@
 class PlayersController < ApplicationController
   before_action :set_tournament, only: [:index]
-  before_action :set_player, only: [:show, :update, :destroy]
+  before_action :set_player, only: [:show, :update, :destroy, :matches]
 
   def index
-    @players = @tournament.players
+    @players = @tournament.players.includes('medals')
   end
 
   def show
@@ -29,6 +29,11 @@ class PlayersController < ApplicationController
 
   def destroy
     @player.destroy
+  end
+
+  def matches
+    @matches = @player.matches
+    render 'matches/index'
   end
 
   private

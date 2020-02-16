@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_16_042737) do
+ActiveRecord::Schema.define(version: 2020_02_16_163447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -244,6 +244,15 @@ ActiveRecord::Schema.define(version: 2020_02_16_042737) do
     t.string "score_type"
   end
 
+  create_table "medals", force: :cascade do |t|
+    t.bigint "player_id"
+    t.string "name"
+    t.integer "variant"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_medals_on_player_id"
+  end
+
   create_table "metrics", force: :cascade do |t|
     t.string "display_name"
     t.bigint "organization_id"
@@ -406,6 +415,7 @@ ActiveRecord::Schema.define(version: 2020_02_16_042737) do
   add_foreign_key "issues", "events"
   add_foreign_key "issues", "organizations"
   add_foreign_key "issues", "users"
+  add_foreign_key "medals", "players"
   add_foreign_key "metrics", "organizations"
   add_foreign_key "metrics", "plugin_configurations"
   add_foreign_key "metrics", "users", column: "owner_id"

@@ -5,4 +5,7 @@ json.array! @players.each do |player|
   if @tournament
     json.tournament_id @tournament.id
   end
+  json.medals player.medals.each do |medal|
+    json.extract! medal, :id, :player_id, :name, :variant
+  end
 end

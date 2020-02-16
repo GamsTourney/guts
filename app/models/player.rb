@@ -1,7 +1,9 @@
 class Player < ApplicationRecord
   has_secure_password
   has_many :competitors
+  has_many :matches, through: :competitors
   has_many :tournaments, through: :competitors
+  has_many :medals
 
   validates :name, presence: true
 

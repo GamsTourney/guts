@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: one
+  name: MyString
+  variant: 1
+
+two:
+  player: two
+  name: MyString
+  variant: 1
