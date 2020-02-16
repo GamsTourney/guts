@@ -82,4 +82,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.active_storage.service = :google
+
+  config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
 end
