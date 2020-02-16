@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_08_222532) do
+ActiveRecord::Schema.define(version: 2020_02_16_042737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -179,6 +179,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_222532) do
     t.integer "players"
     t.string "genre"
     t.integer "max_score"
+    t.string "details"
   end
 
   create_table "goals", force: :cascade do |t|
