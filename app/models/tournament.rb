@@ -13,6 +13,7 @@ class Tournament < ApplicationRecord
     end
 
     matches.each do |m|
+      m.result_picture.purge
       m.match_competitors.each do |mc|
         mc.update(position: nil, points: 0)
       end
