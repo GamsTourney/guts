@@ -23,7 +23,7 @@ class MatchesController < ApplicationController
   end
 
   def update
-    if @match.update(match_params)
+    if current_player.admin && @match.update(match_params)
       json = render :show, status: :ok, location: @match
       ActionCable.server.broadcast 'matches_channel', json
       json
