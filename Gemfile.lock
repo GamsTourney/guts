@@ -168,6 +168,12 @@ GEM
       uber (< 0.2.0)
     retriable (3.1.2)
     ruby-graphviz (1.2.4)
+    ruby_http_client (3.4.3)
+    sendgrid-actionmailer (2.6.0)
+      mail (~> 2.5)
+      sendgrid-ruby (~> 6.0)
+    sendgrid-ruby (6.1.0)
+      ruby_http_client (~> 3.4.0)
     signet (0.12.0)
       addressable (~> 2.3)
       faraday (~> 0.9)
@@ -207,8 +213,12 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-erd
   rails_12factor
+  sendgrid-actionmailer
   steam_web_api
   tzinfo-data
+
+RUBY VERSION
+   ruby 2.6.0p0
 
 BUNDLED WITH
    1.17.2

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <%= render "shared_styles" %>
+  </head>
+  <body>
+    <div id="container-v2">
+      <div id="main-card">
+        <div id="logo">
+          <img src="https://avatars2.githubusercontent.com/u/32110754" size="250" />
+        </div>
+        <div id="title">
+          Welcome to Gams 2020!
+        </div>
+        <div id="subtitle">
+          Congratulations! You are invited to the premier gaming event of the year.
+        </div>
+        <br />
+        <div id="subtitle">
+          Use the button below to login to the Gams app.
+        </div>
+        <div id="button">
+          <a href="https://app.gams2020.com/auth/<%= @token %>">
+            <button >
+              Let's Play!
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -18,4 +18,8 @@ class Player < ApplicationRecord
   def steam_data
     SteamCache.get_player_summary(self.steam_id)
   end
+
+  def invite(tournament)
+    PlayerMailer.invite(self, tournament).deliver_now
+  end
 end
