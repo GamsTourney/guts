@@ -67,7 +67,7 @@ ActiveRecord::Base.transaction do
   # Swords and Soldiers 2
   sns = Game.find_by(name: 'Swords and Soldiers 2')
   Helpers.add_scores(sns, [2, 0])
-  sns_start = DateTime.new(2021, 3, 6, 13, 0o0, 0, '-5:00')
+  sns_start = DateTime.new(2021, 3, 6, 13, 0, 0, '-5:00')
   sns_schedule = [
     [[2, 4], [1, 5], [6, 7], [3, 8]],
     [[3, 4], [2, 5], [1, 6], [7, 8]],
