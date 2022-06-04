@@ -92,7 +92,7 @@ ActiveRecord::Base.transaction do
 
   # Tetris
   tetris = Game.find_by(name: 'Tetris')
-  Helpers.add_scores(kart, [4, 3, 2, 2, 1, 1, 0, 0])
+  Helpers.add_scores(tetris, [4, 3, 2, 2, 1, 1, 0, 0])
   tetris_start = DateTime.new(2022, 6, 18, 15, 0, 0, '-5:00')
   tetris_schedule = Array.new(8, [[1,2,3,4,5,6,7,8]])
   Helpers.create_matches(tournament, tetris_schedule, tetris_start, 5.minutes, [tetris], 'rank')
