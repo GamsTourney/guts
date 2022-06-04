@@ -1,0 +1,25 @@
+---
+- name: Tetris
+  players: 8
+  img_url: ""
+- name: Mario Kart
+  players: 8
+  img_url: ""
+- name: Halo
+  players: 8
+  img_url: ""
+- name: Speed Runners
+  players: 4
+  img_url: ""
+- name: Rocket League
+  players: 4
+  img_url: ""
+- name: Battlerite
+  players: 4
+  img_url: ""
+- name: Mount Your Friends
+  players: 4
+  img_url: ""
+- name: Swords and Soldiers 2
+  players: 2
+  img_url: ""
