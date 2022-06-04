@@ -18,7 +18,6 @@ ActiveRecord::Base.transaction do
 
   # Games
   games = YAML.load_file('db/seeds/2022/games.yml')
-  Game.create(games)
 
   # Halo
   halo = Game.find_by(name: 'Halo')
@@ -91,13 +90,14 @@ ActiveRecord::Base.transaction do
   ]
   Helpers.create_matches(tournament, rocket_schedule, rocket_start, 8.minutes, [rocket, rocket], 'manual')
 
-  # Mario Kart
+  # Tetris
   tetris = Game.find_by(name: 'Tetris')
   Helpers.add_scores(kart, [4, 3, 2, 2, 1, 1, 0, 0])
-  kart_start = DateTime.new(2022, 6, 18, 16, 0, 0, '-5:00')
-  kart_schedule = Array.new(8, [[1,2,3,4,5,6,7,8]])
-  Helpers.create_matches(tournament, kart_schedule, kart_start, 5.minutes, [kart], 'rank')
+  tetris_start = DateTime.new(2022, 6, 18, 16, 0, 0, '-5:00')
+  tetris_schedule = Array.new(8, [[1,2,3,4,5,6,7,8]])
+  Helpers.create_matches(tournament, tetris_schedule, tetris_start, 5.minutes, [tetris], 'rank')
 
+  # Mount Your Friends
   mount = Game.find_by(name: 'Mount Your Friends')
   Helpers.add_scores(mount, [4, 2, 1, 0])
   late_start = DateTime.new(2022, 6, 18, 17, 00, 0, '-5:00')
