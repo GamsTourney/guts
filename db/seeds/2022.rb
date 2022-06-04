@@ -92,15 +92,15 @@ ActiveRecord::Base.transaction do
   Helpers.create_matches(tournament, rocket_schedule, rocket_start, 8.minutes, [rocket, rocket], 'manual')
 
   # Mario Kart
-  kart = Game.find_by(name: 'Mario Kart 8')
+  tetris = Game.find_by(name: 'Tetris')
   Helpers.add_scores(kart, [4, 3, 2, 2, 1, 1, 0, 0])
-  kart_start = DateTime.new(2022, 6, 18, 15, 0, 0, '-5:00')
+  kart_start = DateTime.new(2022, 6, 18, 16, 0, 0, '-5:00')
   kart_schedule = Array.new(8, [[1,2,3,4,5,6,7,8]])
   Helpers.create_matches(tournament, kart_schedule, kart_start, 5.minutes, [kart], 'rank')
 
   mount = Game.find_by(name: 'Mount Your Friends')
   Helpers.add_scores(mount, [4, 2, 1, 0])
-  late_start = DateTime.new(2022, 6, 18, 16, 00, 0, '-5:00')
+  late_start = DateTime.new(2022, 6, 18, 17, 00, 0, '-5:00')
   late_schedule =[
     [[2,5,6,4], [1,3,7,8]],
     [[1,3,5,7], [2,4,6,8]],
@@ -115,7 +115,7 @@ ActiveRecord::Base.transaction do
   # Mario Kart
   kart = Game.find_by(name: 'Mario Kart 8')
   Helpers.add_scores(kart, [4, 3, 2, 2, 1, 1, 0, 0])
-  kart_start = DateTime.new(2022, 6, 18, 17, 0, 0, '-5:00')
+  kart_start = DateTime.new(2022, 6, 18, 18, 0, 0, '-5:00')
   kart_schedule = Array.new(8, [[1,2,3,4,5,6,7,8]])
   Helpers.create_matches(tournament, kart_schedule, kart_start, 5.minutes, [kart], 'rank')
 end
